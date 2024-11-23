@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Location Master</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Location Master</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="form-container">
+    <form (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-label position="floating">Location Name</ion-label>
+        <ion-input [(ngModel)]="locationName" name="locationName" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Road Type</ion-label>
+        <ion-select [(ngModel)]="roadType" name="roadType" required>
+          <ion-select-option *ngFor="let road of roadOptions" [value]="road">{{ road }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Location Type</ion-label>
+        <ion-select [(ngModel)]="locationType" name="locationType" required>
+          <ion-select-option *ngFor="let location of locationOptions" [value]="location">{{ location }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Description</ion-label>
+        <ion-textarea [(ngModel)]="description" name="description"></ion-textarea>
+      </ion-item>
+
+      <ion-button expand="block" type="submit">Submit</ion-button>
+    </form>
+  </div>
+</ion-content>
